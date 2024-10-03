@@ -13,7 +13,7 @@ data(iris)
 head(iris)
 
 # Remove the species column for clustering
-iris_data <- iris[, -5]
+iris_data <- iris[0:30, -5]
 
 # Calculate the total within-cluster saum of squares
 wss <- (nrow(iris_data)-1)*sum(apply(iris_data, 2, var))
@@ -26,7 +26,7 @@ for (i in 2:15) {
 plot(1:15, wss, type="b", xlab="Number of Clusters", ylab="Within-cluster sum of squares")
 
 # Set the seed for reproducibility
-set.seed(123)
+set.seed(10)
 
 # Apply K-Means clustering
 kmeans_result <- kmeans(iris_data, centers=3, nstart=20)
